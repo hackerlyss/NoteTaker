@@ -17,7 +17,7 @@ To install necessary dependencies, run the following command:
 ```npm i```
 
 ## Usage
-To use, please visit this page: (link)
+To use, please visit this page: (https://ac-notetaker.herokuapp.com/)
     
 ## Contributing
 Email me with any suggestions as this is only the first version
