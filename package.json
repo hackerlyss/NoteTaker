@@ -19,5 +19,8 @@
   "homepage": "https://github.com/hackerlyss/NoteTaker#readme",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "engines": {
+    "node": "14.16.1"
   }
 }

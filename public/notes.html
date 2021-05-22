@@ -15,103 +15,28 @@
       integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
       crossorigin="anonymous"
     />
-    
+    <link rel="stylesheet" href="assets/styles.css" />
   </head>
 
   <body>
 <nav class="navbar navbar-dark bg-dark"><a class="navbar-brand" href="/">Note Taker</a>
   <div class="icons">
-   <button type="button" id="save-btn" class="btn btn-outline-success"><i class="fas fa-save text-light save-note"></i></button>
-   <button type="button" id="new-btn" class="btn btn-outline-success"><i class="fas fa-plus text-light new-note"></i></button>
+  <i class="fas fa-save text-light save-btn"></i>
+  <i class="fas fa-plus text-light new-btn"></i>
   </div>
 </nav>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-4">
-      <ul class="list-group" id="note-list">
-        <li class="list-group-item">Example</li>
-        <li class="list-group-item"></li>
-        <li class="list-group-item"></li>
-        <li class="list-group-item"></li>
-        <li class="list-group-item"></li>
-      </ul>
-      </div>
-      <div class="col-6 list-container">
-        <div class="card" style="width: 35rem;">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item"><div class="col-8">
-              <form action="" method="POST" role="form">
-               <div class="form-group">
-                  <div class="input-group input-group-lg">
-                    <input type="text" class="form-control" id="note-title" placeholder="Note Title" maxlength="28" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
-                  </div>
-              </div> 
-            </li>
-               <div class="form-group">
-                  <li class="list-group-item">
-                    <div class="input-group">
-                      <input type="text" class="form-control" id="note-textarea" placeholder="Note Text" aria-label="Note Text"></input>
-                     </div>
-                  </li>
-                </div>
-             </form>
-         </ul>
-     </div>
-   </div>
-  </div>
-</div>
-              
-          
+    <div class="col-4 list-container">
+      <div class="card">
+        <ul class="list-group" id="note-list"></ul>
       </div>
     </div>
-    
+  <div class="col-8 ">
+    <input type="text" class="form-control note-title" placeholder="Note Title" maxlength="28" >
+    <textarea class="note-textarea" placeholder="Note Text"></textarea>
+  </div>
+ </div>
+    <script src="assets/script.js"></script>
   </body>
 </html>
-<script>
-  const saveBtn = document.getElementById("save-btn");
-  submitBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    // Grab form elements
-    let newNote = {
-      title: document.getElementById('note-title').value.trim(),
-      textArea: document.getElementById('note-textarea').value.trim(),
-
-    };
-
-    console.log('saveBtn.onclick -> newNote', newNote);
-
-    // Here we make our fetch by providing a URL, the object we want to send as the body object, then we have a "promise".
-    // The promise is the response of the server. In our case, we set up code in api-routes that "returns" true or false
-    // depending on if a tables is available or not.
-
-    fetch('/api/tables', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newReservation),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data) {
-          // If a table is available... tell user they are booked.
-
-          alert('Yay! You are officially booked!');
-        } else {
-          // Otherwise, tell the  user they are on the wait list
-
-          alert('Sorry you are on the wait list');
-
-          // Clear the form
-          document.getElementById('reserve-name').value = '';
-          document.getElementById('reserve-phone').value = '';
-          document.getElementById('reserve-email').value = '';
-          document.getElementById('reserve-unique-id').value = '';
-        }
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-  });
-</script>
